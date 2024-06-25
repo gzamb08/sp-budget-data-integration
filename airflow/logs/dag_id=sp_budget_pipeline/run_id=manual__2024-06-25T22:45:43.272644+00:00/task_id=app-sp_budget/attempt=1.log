@@ -1,0 +1,113 @@
+[2024-06-25T22:46:05.010+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-25T22:46:05.035+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sp_budget_pipeline.app-sp_budget manual__2024-06-25T22:45:43.272644+00:00 [queued]>
+[2024-06-25T22:46:05.044+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sp_budget_pipeline.app-sp_budget manual__2024-06-25T22:45:43.272644+00:00 [queued]>
+[2024-06-25T22:46:05.044+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-25T22:46:05.083+0000] {taskinstance.py:2330} INFO - Executing <Task(DockerOperator): app-sp_budget> on 2024-06-25 22:45:43.272644+00:00
+[2024-06-25T22:46:05.099+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=128) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-25T22:46:05.103+0000] {standard_task_runner.py:63} INFO - Started process 129 to run task
+[2024-06-25T22:46:05.104+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sp_budget_pipeline', 'app-sp_budget', 'manual__2024-06-25T22:45:43.272644+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/sp_budget_pipeline.py', '--cfg-path', '/tmp/tmpvui7tvie']
+[2024-06-25T22:46:05.106+0000] {standard_task_runner.py:91} INFO - Job 22: Subtask app-sp_budget
+[2024-06-25T22:46:05.235+0000] {task_command.py:426} INFO - Running <TaskInstance: sp_budget_pipeline.app-sp_budget manual__2024-06-25T22:45:43.272644+00:00 [running]> on host 257b93314acf
+[2024-06-25T22:46:05.419+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@***.com' AIRFLOW_CTX_DAG_OWNER='engenharia-dados' AIRFLOW_CTX_DAG_ID='sp_budget_pipeline' AIRFLOW_CTX_TASK_ID='app-sp_budget' AIRFLOW_CTX_EXECUTION_DATE='2024-06-25T22:45:43.272644+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-25T22:45:43.272644+00:00'
+[2024-06-25T22:46:05.422+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-25T22:46:05.476+0000] {docker.py:366} INFO - Starting docker container from image etl-engine:latest
+[2024-06-25T22:46:05.478+0000] {docker.py:374} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2024-06-25T22:46:09.435+0000] {docker.py:436} INFO - 2024-06-25 22:46:09,435 [INFO] sp_budget app: Starting....
+[2024-06-25T22:46:09.436+0000] {docker.py:436} INFO - 2024-06-25 22:46:09,435 [INFO] PROJECT_ID: homologation-310718 - CLIENT_EMAIL: datalake-hml@homologation-310718.iam.gserviceaccount.com
+[2024-06-25T22:46:09.437+0000] {docker.py:436} INFO - 2024-06-25 22:46:09,437 [INFO] Reading data from table upload_manual.gdvdespesasexcel.
+[2024-06-25T22:46:10.228+0000] {docker.py:436} INFO - 2024-06-25 22:46:10,227 [ERROR] BigQuery error -> 404 Not found: Table homologation-310718:upload_manual.gdvdespesasexcel was not found in location us-east1
+
+Location: us-east1
+Job ID: f06499bc-f01a-40b9-9790-1b7bef19084a
+[2024-06-25T22:46:10.228+0000] {docker.py:436} INFO - Traceback (most recent call last):
+  File "//./main.py", line 41, in <module>
+[2024-06-25T22:46:10.228+0000] {docker.py:436} INFO - run_app()
+  File "//./main.py", line 32, in run_app
+[2024-06-25T22:46:10.229+0000] {docker.py:436} INFO - sp_budget_service.execute()
+  File "/app/service/sp_budget_service.py", line 70, in execute
+[2024-06-25T22:46:10.229+0000] {docker.py:436} INFO - df_despesas = (self.bq_repository.get_data(table='gdvdespesasexcel',
+  File "/repository/big_query_repository.py", line 48, in get_data
+[2024-06-25T22:46:10.229+0000] {docker.py:436} INFO - raise ex
+  File "/repository/big_query_repository.py", line 41, in get_data
+[2024-06-25T22:46:10.229+0000] {docker.py:436} INFO - .result()
+  File "/usr/local/lib/python3.10/site-packages/google/cloud/bigquery/job/query.py", line 1499, in result
+[2024-06-25T22:46:10.229+0000] {docker.py:436} INFO - do_get_result()
+  File "/usr/local/lib/python3.10/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+[2024-06-25T22:46:10.229+0000] {docker.py:436} INFO - return retry_target(
+  File "/usr/local/lib/python3.10/site-packages/google/api_core/retry/retry_unary.py", line 153, in retry_target
+[2024-06-25T22:46:10.230+0000] {docker.py:436} INFO - _retry_error_helper(
+  File "/usr/local/lib/python3.10/site-packages/google/api_core/retry/retry_base.py", line 212, in _retry_error_helper
+[2024-06-25T22:46:10.230+0000] {docker.py:436} INFO - raise final_exc from source_exc
+  File "/usr/local/lib/python3.10/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+[2024-06-25T22:46:10.230+0000] {docker.py:436} INFO - result = target()
+  File "/usr/local/lib/python3.10/site-packages/google/cloud/bigquery/job/query.py", line 1489, in do_get_result
+[2024-06-25T22:46:10.230+0000] {docker.py:436} INFO - super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/usr/local/lib/python3.10/site-packages/google/cloud/bigquery/job/base.py", line 728, in result
+[2024-06-25T22:46:10.230+0000] {docker.py:436} INFO - return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/google/api_core/future/polling.py", line 261, in result
+[2024-06-25T22:46:10.230+0000] {docker.py:436} INFO - raise self._exception
+[2024-06-25T22:46:10.231+0000] {docker.py:436} INFO - google.api_core.exceptions.NotFound: 404 Not found: Table homologation-310718:upload_manual.gdvdespesasexcel was not found in location us-east1
+
+Location: us-east1
+Job ID: f06499bc-f01a-40b9-9790-1b7bef19084a
+[2024-06-25T22:46:13.120+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-25T22:46:13.132+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/docker/api/client.py", line 275, in _raise_for_status
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http+docker://localhost/v1.45/containers/create?name=etl-engine___app-sp_budget
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 371, in _run_image
+    return self._run_image_with_mounts([*self.mounts, tmp_mount], add_tmp_variable=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 398, in _run_image_with_mounts
+    self.container = self.cli.create_container(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/docker/api/container.py", line 440, in create_container
+    return self.create_container_from_config(config, name, platform)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/docker/api/container.py", line 457, in create_container_from_config
+    return self._result(res, True)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/docker/api/client.py", line 281, in _result
+    self._raise_for_status(response)
+  File "/home/airflow/.local/lib/python3.12/site-packages/docker/api/client.py", line 277, in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/docker/errors.py", line 39, in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+docker.errors.APIError: 400 Client Error for http+docker://localhost/v1.45/containers/create?name=etl-engine___app-sp_budget: Bad Request ("invalid mount config for type "bind": bind source path does not exist: /tmp/airflowtmphiiklpzj")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 509, in execute
+    return self._run_image()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 380, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/docker/operators/docker.py", line 444, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2024-06-25T22:46:13.141+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=sp_budget_pipeline, task_id=app-sp_budget, run_id=manual__2024-06-25T22:45:43.272644+00:00, execution_date=20240625T224543, start_date=20240625T224605, end_date=20240625T224613
+[2024-06-25T22:46:13.196+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 22 for task app-sp_budget (Docker container failed: {'StatusCode': 1}; 129)
+[2024-06-25T22:46:13.212+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-25T22:46:13.225+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-25T22:46:13.265+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

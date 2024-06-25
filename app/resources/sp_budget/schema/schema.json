@@ -1,0 +1,6 @@
+{
+  "id_fonte_recurso": "str",
+  "nome_fonte_recursos": "str",
+  "total_liquidado": "float",
+  "total_arrecadado": "float"
+}

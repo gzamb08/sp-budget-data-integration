@@ -1,0 +1,29 @@
+[2024-06-25T22:42:18.920+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-25T22:42:19.013+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sp_budget_pipeline.ingestion-gdvReceitasExcel manual__2024-06-25T22:42:15.133087+00:00 [queued]>
+[2024-06-25T22:42:19.028+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sp_budget_pipeline.ingestion-gdvReceitasExcel manual__2024-06-25T22:42:15.133087+00:00 [queued]>
+[2024-06-25T22:42:19.029+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-06-25T22:42:19.103+0000] {taskinstance.py:2330} INFO - Executing <Task(DockerOperator): ingestion-gdvReceitasExcel> on 2024-06-25 22:42:15.133087+00:00
+[2024-06-25T22:42:19.110+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=71) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-25T22:42:19.112+0000] {standard_task_runner.py:63} INFO - Started process 73 to run task
+[2024-06-25T22:42:19.113+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sp_budget_pipeline', 'ingestion-gdvReceitasExcel', 'manual__2024-06-25T22:42:15.133087+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/sp_budget_pipeline.py', '--cfg-path', '/tmp/tmprbpkyfmv']
+[2024-06-25T22:42:19.114+0000] {standard_task_runner.py:91} INFO - Job 18: Subtask ingestion-gdvReceitasExcel
+[2024-06-25T22:42:19.192+0000] {task_command.py:426} INFO - Running <TaskInstance: sp_budget_pipeline.ingestion-gdvReceitasExcel manual__2024-06-25T22:42:15.133087+00:00 [running]> on host 257b93314acf
+[2024-06-25T22:42:19.497+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@***.com' AIRFLOW_CTX_DAG_OWNER='engenharia-dados' AIRFLOW_CTX_DAG_ID='sp_budget_pipeline' AIRFLOW_CTX_TASK_ID='ingestion-gdvReceitasExcel' AIRFLOW_CTX_EXECUTION_DATE='2024-06-25T22:42:15.133087+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-06-25T22:42:15.133087+00:00'
+[2024-06-25T22:42:19.501+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-25T22:42:19.674+0000] {docker.py:366} INFO - Starting docker container from image etl-engine:latest
+[2024-06-25T22:42:19.678+0000] {docker.py:374} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2024-06-25T22:42:27.766+0000] {docker.py:436} INFO - 2024-06-25 22:42:27,766 [INFO] gdvReceitasExcel ingestion: Starting....
+[2024-06-25T22:42:27.767+0000] {docker.py:436} INFO - 2024-06-25 22:42:27,766 [INFO] PROJECT_ID: homologation-310718 - CLIENT_EMAIL: datalake-hml@homologation-310718.iam.gserviceaccount.com
+[2024-06-25T22:42:27.768+0000] {docker.py:436} INFO - 2024-06-25 22:42:27,767 [INFO] _read_schema
+[2024-06-25T22:42:28.014+0000] {docker.py:436} INFO - 2024-06-25 22:42:28,014 [INFO] _enforce_schema
+2024-06-25 22:42:28,014 [INFO] _read_schema
+[2024-06-25T22:42:28.030+0000] {docker.py:436} INFO - 2024-06-25 22:42:28,030 [INFO] Running insert on table sp_budget.raw_gdvreceitasexcel.
+[2024-06-25T22:42:33.676+0000] {docker.py:436} INFO - 2024-06-25 22:42:33,676 [INFO] Insert on table sp_budget.raw_gdvreceitasexcel finished!
+[2024-06-25T22:42:33.677+0000] {docker.py:436} INFO - 2024-06-25 22:42:33,676 [INFO] gdvReceitasExcel ingestion: Done.
+[2024-06-25T22:42:37.082+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-25T22:42:37.208+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=sp_budget_pipeline, task_id=ingestion-gdvReceitasExcel, run_id=manual__2024-06-25T22:42:15.133087+00:00, execution_date=20240625T224215, start_date=20240625T224219, end_date=20240625T224237
+[2024-06-25T22:42:37.285+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-25T22:42:37.318+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-25T22:42:37.343+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

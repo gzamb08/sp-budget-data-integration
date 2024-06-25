@@ -1,0 +1,5 @@
+{
+  "fonte_de_recursos": "str",
+  "despesa": "str",
+  "liquidado": "float"
+}
